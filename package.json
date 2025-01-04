@@ -1,0 +1,28 @@
+{
+  "name": "drone-control-app",
+  "main": "app/app.js",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nativescript/core": "~8.6.0",
+    "@nativescript/theme": "~3.0.2",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.6.2",
+    "@nativescript/ios": "8.6.1",
+    "@nativescript/preview-cli": "^1.0.10",
+    "@nativescript/types": "~8.6.0",
+    "@nativescript/webpack": "~5.0.18"
+  },
+  "scripts": {
+    "android": "ns run android",
+    "ios": "ns run ios",
+    "mobile": "ns run",
+    "preview": "npx @nativescript/preview-cli preview"
+  },
+  "nativescript": {
+    "id": "org.nativescript.dronecontrol",
+    "templateVersion": "v8"
+  }
+}

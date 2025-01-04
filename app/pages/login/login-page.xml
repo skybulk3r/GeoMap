@@ -1,0 +1,39 @@
+<Page navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Drone Control Login" />
+    
+    <StackLayout class="form" verticalAlignment="center">
+        <Image src="~/images/drone-logo.png" width="120" height="120" marginBottom="20" />
+        <Label text="Welcome Back" class="title" horizontalAlignment="center" />
+        <Label text="Sign in to continue" class="subtitle" horizontalAlignment="center" marginBottom="20" />
+        
+        <GridLayout rows="auto, auto, auto, auto" class="login-form">
+            <StackLayout row="0" class="input-field">
+                <TextField 
+                    class="form-field" 
+                    hint="Email" 
+                    text="{{ email }}" 
+                    keyboardType="email" 
+                    autocorrect="false" 
+                    autocapitalizationType="none"
+                    returnKeyType="next" />
+            </StackLayout>
+            
+            <StackLayout row="1" class="input-field">
+                <TextField 
+                    class="form-field" 
+                    hint="Password" 
+                    text="{{ password }}" 
+                    secure="true"
+                    returnKeyType="done" />
+            </StackLayout>
+            
+            <Button row="2" text="LOGIN" class="btn" tap="{{ onLogin }}" isEnabled="{{ !isLoading }}" />
+            
+            <GridLayout row="3" columns="auto, *" marginTop="10">
+                <ActivityIndicator col="0" busy="{{ isLoading }}" />
+                <Label col="1" text="{{ errorMessage }}" color="red" textWrap="true" 
+                       visibility="{{ errorMessage ? 'visible' : 'collapsed' }}" />
+            </GridLayout>
+        </GridLayout>
+    </StackLayout>
+</Page>

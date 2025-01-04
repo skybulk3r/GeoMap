@@ -1,0 +1,33 @@
+<Page navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Drone Fleet">
+        <NavigationButton visibility="collapsed" />
+        <ActionItem tap="{{ onLogout }}" ios.position="right" android.position="actionBar">
+            <Label text="Logout" />
+        </ActionItem>
+    </ActionBar>
+    
+    <GridLayout rows="auto, *">
+        <StackLayout row="0" class="stats-container" orientation="horizontal" horizontalAlignment="center">
+            <Label text="{{ 'Active: ' + activeFlights }}" class="stat-label" />
+            <Label text=" | " class="stat-separator" />
+            <Label text="{{ 'Total: ' + totalFlights }}" class="stat-label" />
+        </StackLayout>
+        
+        <ListView items="{{ flights }}" row="1" separatorColor="#eee">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" class="card">
+                    <StackLayout col="0">
+                        <Label text="{{ 'Flight #' + id }}" class="subtitle" />
+                        <Label text="{{ status }}" class="status-label" color="{{ status === 'active' ? '#4CAF50' : '#9E9E9E' }}" />
+                        <Label text="{{ 'Drone: ' + droneId }}" class="detail-label" />
+                    </StackLayout>
+                    <Button col="1" text="Details" class="btn-secondary" tap="{{ $parent.onViewFlight }}" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+        
+        <ActivityIndicator rowSpan="2" busy="{{ isLoading }}" />
+    </GridLayout>
+    
+    <FAB tap="{{ onAddFlight }}" icon="res://ic_add" />
+</Page>
